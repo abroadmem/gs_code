@@ -48,8 +48,10 @@ if ($status == false) {
           $like_status = $like_stmt->execute();
           $view .= '<section class="like_comment"><a>';        
           while ($like_result = $like_stmt->fetch(PDO::FETCH_ASSOC)) {
-              $view .= $like_result["name"].' ';
+              $view .= $like_result["name"];
+              $view .= ',';
           }
+          $view = rtrim($view, ",");
           $view .= 'がいいねしました</a></section>';
         }
 
